@@ -2,7 +2,7 @@
 # SSType (secDevLabs, by Globo.com) as an Isoloom spec: a Python Tornado page with a server-side
 # template injection, vendored unchanged in build/server/app/ (the app folder
 # owasp-top10-2021-apps/a3/sstype of secDevLabs), built by an overlay of upstream's Dockerfile.
-# `isoloom generate`, then `isoloom up docker`.
+# `isoloom generate`, then `isoloom run docker`.
 version: 1
 name: secdevlabs-sstype
 

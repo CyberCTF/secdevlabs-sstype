@@ -1,0 +1,14 @@
+{
+  "title": "secDevLabs SSType",
+  "description": "A one-page Python Tornado application that greets the visitor by the name given in the URL. The name is pasted into the template source before Tornado renders it.",
+  "question": "Exploit the server-side template injection to run a command on the server and read a file from it.",
+  "category": "WEB",
+  "difficulty": 2,
+  "evidence_kind": "SECRET",
+  "capabilities": [
+    "ssti",
+    "injection",
+    "remote-code-execution",
+    "tornado"
+  ]
+}

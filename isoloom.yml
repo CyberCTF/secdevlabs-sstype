@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://www.isoloom.com/schema/v1.json
+# SSType (secDevLabs, by Globo.com) as an Isoloom spec: a Python Tornado page with a server-side
+# template injection, vendored unchanged in build/server/app/ (the app folder
+# owasp-top10-2021-apps/a3/sstype of secDevLabs), built by an overlay of upstream's Dockerfile.
+# `isoloom generate`, then `isoloom up docker`.
+version: 1
+name: secdevlabs-sstype
+
+networks:
+  lab: { cidr: 10.60.98.0/24, internet: false }
+
+machines:
+  server:
+    networks: { lab: 10 }
+    services: [{ port: 10001, name: web, http: true, publish: 10001 }]
+    resources: { cpus: 1, memory_mb: 256 }
+    docker:
+      build: build/server
+
+checks:
+  - name: the page answers
+    http: http://server:10001/
+    wait: 120
+  - name: the name parameter is rendered into the page
+    script: checks/greeting.sh
+
+message: |
+  SSType answers at http://localhost:{{ machines.server.services.0.publish }}/?name=you. Your
+  name goes through Tornado's template engine.

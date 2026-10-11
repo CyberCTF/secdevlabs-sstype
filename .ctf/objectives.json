@@ -1,0 +1,43 @@
+{
+  "objectives": [
+    {
+      "key": "main",
+      "title": "Read the flag",
+      "prompt": "Turn template injection into command execution and read /ctf/flag.",
+      "check": {
+        "evidence": "SECRET",
+        "format": "FLAG{%s}"
+      },
+      "dev": "FLAG{dev-secdevlabs-sstype}",
+      "hints": [
+        "The name in the URL is pasted into the template source.",
+        "Read about server-side template injection in Tornado."
+      ],
+      "steps": [
+        {
+          "key": "engine",
+          "title": "Identify the framework",
+          "prompt": "Which Python web framework renders the page?",
+          "check": {
+            "answer": [
+              "tornado"
+            ]
+          }
+        },
+        {
+          "key": "class",
+          "title": "Name the weakness",
+          "prompt": "What class of vulnerability is this? (acronym accepted)",
+          "check": {
+            "answer": [
+              "ssti",
+              "server-side template injection",
+              "server side template injection",
+              "template injection"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

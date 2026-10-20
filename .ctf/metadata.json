@@ -1,8 +1,11 @@
 {
+  "project_name": "cyberlabs-secdevlabs-sstype",
+  "slug": "secdevlabs-sstype",
   "title": "secDevLabs SSType",
   "description": "A one-page Python Tornado application that greets the visitor by the name given in the URL. The name is pasted into the template source before Tornado renders it.",
-  "question": "Exploit the server-side template injection to run a command on the server and read /ctf/flag.",
-  "category": "WEB",
+  "category": "web",
   "difficulty": 2,
-  "evidence_kind": "SECRET"
+  "evidence_kind": "SECRET",
+  "capabilities": [],
+  "question": "Exploit the server-side template injection to run a command on the server and read /ctf/flag."
 }
